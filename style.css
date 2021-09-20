@@ -1,34 +1,40 @@
+* {
+    box-sizing: border-box;
+}
 body {
     margin: 0;
-    padding: 0;
+    padding: 50px 0;
     font-family: 'Barlow Semi Condensed', sans-serif;
     font-size: 13px;
     font-weight: 500;
+    background-color: hsl(210, 46%, 95%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 h1, h2, h3, h4, h5, h6 {
 	font-weight: 600;
     margin: 0;
 }
-.wrapper {
-    width: 1440px;
-    margin: 50px auto;
-    background-color: hsl(210, 46%, 95%);
-    padding: 70px 0;
-}
+
 .container {
+    max-width: 1440px;
     grid-template-areas: "first first second third"
                          "fourth fifth fifth third";
     display: grid;
     grid-template-rows: 1fr 1fr;
-    grid-template-columns: 300px 300px 300px 300px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 30px;
     justify-content: center;
+    align-content: center;
 }
 .review {
     padding: 25px;
     border-radius: 8px;
+    box-shadow: 8px 10px 8px hsl(0deg 0% 0% / 20%);
 }
-#firstUser {
+.firstUser {
     grid-area: first;
     background: url(images/bg-pattern-quotation.svg);
     background-repeat: no-repeat;
@@ -39,22 +45,22 @@ h1, h2, h3, h4, h5, h6 {
     color: hsl(0, 0%, 100%);
     position: relative;
 }
-#secondUser {
+.secondUser {
     grid-area: second;
     background-color: hsl(217, 19%, 35%);
     border: 2px solid hsl(218, 19%, 30%);
     color: hsl(0, 0%, 100%);
 }
-#thirdUser {
+.thirdUser {
     grid-area: third;
     background-color: hsl(0, 0%, 100%);
     color: hsl(217, 19%, 35%);
 }
-#fourthUser {
+.fourthUser {
     grid-area: fourth;
     background-color: hsl(0, 0%, 100%);
 }
-#fifthUser {
+.fifthUser {
     grid-area: fifth;
     background-color: hsl(219, 29%, 14%);
     border: 2px solid hsl(217, 33%, 8%);
@@ -69,8 +75,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 .contactImage img {
     vertical-align: bottom;
-    border: 2px solid hsl(0, 0%, 100%);
+    border: 3px solid hsla(0, 0%, 100%, 70%);
     border-radius: 50%;
+}
+.fifthUser .contactImage img{
+    border: 3px solid hsl(263, 55%, 52%);
 }
 .name {
    display: table-cell;
@@ -100,32 +109,31 @@ h1, h2, h3, h4, h5, h6 {
 .review-text p{
     margin-bottom: 0;
 }
-#thirdUser .name p:last-of-type, #fourthUser .name p:last-of-type {
+.thirdUser .name p:last-of-type, .fourthUser .name p:last-of-type {
     font-size: 12px;
     color:hsla(217, 19%, 35%, 50%);
 }
-#thirdUser .review-text, #fourthUser .review-text {
+.thirdUser .review-text, .fourthUser .review-text {
     color:hsla(217, 19%, 35%, 70%);
 }
-@media screen and (max-width: 1440px) {
+
+@media screen and (max-width: 1500px){
     .wrapper{
-        width: 100%;
+        width: 90%;
     }
 }
-@media screen and (max-width: 1300px) {
+
+@media screen and (max-width: 991px) {
     .container{
         grid-template-areas:    "first first"
                                 "fifth fifth"
                                 "second third"
                                 "fourth third";
-        grid-template-columns: 300px 300px;
-    }
-    .wrapper{
-        margin: 0;
-        padding: 50px 0;
-    }
+        grid-template-columns: 1fr 1fr;
+    }  
 }
-@media screen and (max-width: 768px) {
+
+@media screen and (max-width: 576px) {
     .container{
         grid-template-areas:    "first"
                                 "second"
@@ -133,9 +141,6 @@ h1, h2, h3, h4, h5, h6 {
                                 "fourth"
                                 "fifth";
         grid-template-rows: auto;                      
-        grid-template-columns: 90%;
-    }
-    .wrapper {
-        padding: 20px 0;
+        grid-template-columns: 1fr;
     }
 }
